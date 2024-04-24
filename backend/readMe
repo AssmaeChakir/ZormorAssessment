@@ -1,0 +1,71 @@
+# Places Management API
+
+## Overview
+This project is a Node.js server that provides CRUD (Create, Read, Update, Delete) endpoints for managing places. Each place has the following attributes:
+- Name
+- Description
+- Location
+- Open Hours
+- Images (with support for file uploads)
+
+The backend uses MongoDB for data persistence and Multer for handling file uploads. Additionally, Swagger is used to document the API endpoints.
+
+## Getting Started
+To run this project locally, you'll need Node.js and MongoDB installed. Follow the setup instructions below to get started.
+
+### Prerequisites
+- Node.js (v14 or higher)
+- MongoDB
+
+### Installation
+1. Clone this repository to your local machine.
+   ```bash
+   git clone https://github.com/AssmaeChakir/ZormorAssessment.git
+   cd ZormorAssessment
+2. Install project dependencies.
+- By using the folloing comend on your terminal:
+        npm install
+3. Set up MongoDB. Make sure MongoDB is running on your system or use a MongoDB service. You can use an environment variable to set the MongoDB connection string in your project.
+4. Create a .env file in the project's root directory and set the MongoDB connection string:
+#### Running the Server
+After completing the installation steps, you can start the server with:
+        npm start
+By default, the server listens on port 3000. If the server starts successfully, you should see a message indicating that it's running.
+#### Using the API
+The following CRUD operations are available for managing places:
+
+1. Create a Place
+- Endpoint: POST /places
+- Request Body:
+    name: String (required)
+    description: String (required)
+    location: String (required)
+    openHours: String (required, representing opening and closing times)
+    images: File (optional, upload images)
+- Description: Creates a new place with the given details and uploads images if provided.
+2. Get All Places
+- Endpoint: GET /places
+- Description: Retrieves a list of all places in the database.
+3. Get a Single Place
+- Endpoint: GET /places/:id
+- Description: Retrieves a specific place by ID.
+4. Update a Place
+- Endpoint: PUT /places/:id
+- Request Body:
+    name: String
+    description: String
+    location: String
+    openHours: String
+    images: File (optional)
+- Description: Updates the details of a specific place by ID. If images are provided, they will be uploaded.
+5. Delete a Place
+- Endpoint: DELETE /places/:id
+- Description: Deletes a specific place by ID.
+#### Swagger Documentation
+This project includes Swagger-based API documentation, allowing you to interact with the endpoints through a user-friendly UI.
+
+Endpoint: /api-docs
+Description: Access the Swagger UI to view and interact with the API.
+To use Swagger, open your web browser and navigate to http://localhost:3000/api-docs. Here, you'll find interactive documentation for the API endpoints.
+#### File Uploads
+The server uses Multer to handle file uploads. Uploaded files are stored in the ./uploads/ folder by default. Make sure this directory exists and has appropriate permissions.
