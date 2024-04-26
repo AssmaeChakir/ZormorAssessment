@@ -52,7 +52,7 @@ Copy code
 npm run serve
 Access the Application
 The backend server should be running on http://localhost:3000.
-The frontend server should be running onhttp://localhost:5173/.
+The frontend server should be running on http://localhost:5174/.
 Usage
 After setting up the backend and frontend, you can perform the following operations:
 
