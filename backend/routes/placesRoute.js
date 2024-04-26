@@ -8,15 +8,19 @@ const router = express.Router();
 // Configure Multer for file uploads
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, './uploads/');
+        const uploadPath = path.join(__dirname, '../uploads');
+        cb(null, uploadPath); // Ensure this path exists
     },
     filename: (req, file, cb) => {
         const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
-        cb(null, uniqueSuffix + path.extname(file.originalname));
+        cb(null, uniqueSuffix + '-' + file.originalname); // Unique file name
     },
 });
 
-const upload = multer({ storage });
+const upload = multer({ storage: storage });
+
+// Serve Static Files
+router.use('/uploads', express.static(path.join(__dirname, '../uploads'))); 
 
 // CRUD Routes
 /**

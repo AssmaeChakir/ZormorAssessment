@@ -1,0 +1,71 @@
+# CRUD App with File Uploads and Vue.js Frontend
+
+This project is a CRUD (Create, Read, Update, Delete) application that allows users to manage places. It includes a backend built with Node.js, Express, MongoDB, and `multer` for file uploads, and a frontend built with Vue.js. The project supports creating new places with file uploads, viewing a list of all places, and viewing details of a specific place. The backend also provides Swagger API documentation.
+
+## Table of Contents
+- [Features](#features)
+- [Setup and Installation](#setup-and-installation)
+- [Usage](#usage)
+- [API Endpoints](#api-endpoints)
+- [Frontend](#frontend)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Features
+- Create, Read, Update, and Delete (CRUD) operations for managing places.
+- File uploads for adding images to places.
+- Interactive Swagger API documentation.
+- Vue.js frontend for interacting with the backend API.
+
+## Setup and Installation
+To set up and run this project, follow these steps:
+
+### Backend Setup
+1. Clone the repository to your local machine.
+2. Navigate to the backend directory:
+   ```bash
+   cd backend
+Install the backend dependencies:
+bash
+Copy code
+npm install
+Set up the MongoDB connection. Create a .env file in the backend directory and add your MongoDB connection string:
+env
+Copy code
+MONGO_URI=<your_mongodb_connection_string>
+Start the backend server:
+bash
+Copy code
+npm start
+Frontend Setup
+Navigate to the frontend directory:
+bash
+Copy code
+cd frontend
+Install the frontend dependencies:
+bash
+Copy code
+npm install
+Start the frontend development server:
+bash
+Copy code
+npm run serve
+Access the Application
+The backend server should be running on http://localhost:3000.
+The frontend server should be running onhttp://localhost:5173/.
+Usage
+After setting up the backend and frontend, you can perform the following operations:
+
+Create a New Place: From the frontend, navigate to the "Create Place" page and fill out the form to create a new place with an optional image.
+View All Places: From the frontend, navigate to the "Places List" page to view all places.
+View Place Details: Click on a place in the "Places List" to view its details, including the image (if provided).
+API Endpoints
+The following are the available API endpoints:
+
+Create a Place: POST /places - Create a new place with optional file upload.
+Get All Places: GET /places - Retrieve all places.
+Get Place by ID: GET /places/{id} - Retrieve a specific place by ID.
+Update a Place: PUT /places/{id} - Update a place with optional file upload.
+Delete a Place: DELETE /places/{id} - Delete a place by ID.
+Frontend
+The frontend is built with Vue.js + vite. It includes components for creating new places, viewing all places, and viewing place details. The frontend interacts with the backend API to perform CRUD operations.
