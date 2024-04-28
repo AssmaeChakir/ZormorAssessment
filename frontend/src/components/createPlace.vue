@@ -41,32 +41,29 @@ export default {
       image: null,
     };
   },
-  methods: {
-    handleFileUpload(event) {
-      this.image = event.target.files[0];
-    },
-    async createPlace() {
-      const formData = new FormData();
-      formData.append('name', this.name);
-      formData.append('description', this.description);
-      formData.append('location', this.location);
-      formData.append('openHours', this.openHours);
-      if (this.image) {
-        formData.append('image', this.image);
-      }
-
-      try {
-        await axios.post(`${API_BASE_URL}places`, formData);
-        this.name = '';
-        this.description = '';
-        this.location = '';
-        this.openHours = '';
-        this.image = null;
-      } catch (error) {
-        console.error('Error creating place:', error);
-      }
-    },
+ methods: {
+  handleFileUpload(event) {
+    this.image = event.target.files[0]; // Capture the selected file
   },
+  async createPlace() {
+    const formData = new FormData();
+    formData.append('name', this.name);
+    formData.append('description', this.description);
+    formData.append('location', this.location);
+    formData.append('openHours', this.openHours);
+
+    if (this.image) {
+      formData.append('images', this.image); // Ensure the field name matches what `multer` expects
+    }
+
+    try {
+      await axios.post(`${API_BASE_URL}places`, formData); // Send the form with the correct endpoint
+    } catch (error) {
+      console.error('Error creating place:', error); // Log errors for further debugging
+    }
+  },
+}
+
 };
 </script>
 
